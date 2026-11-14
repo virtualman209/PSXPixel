@@ -1,0 +1,4 @@
+1.0.0
+- Bản đầu tiên: chuột phải ảnh > PSX Pixel > chọn style > OK
+- 5 style có sẵn, lưu style riêng, bảng màu .hex của Lospec
+- Xem trước trước / sau / so sánh, kéo thả ảnh, chuyển nhiều ảnh một lúc
