@@ -1,4 +1,4 @@
-﻿# Cài PSX Pixel chỉ bằng 1 lệnh (PowerShell).
+# Cài PSX Pixel chỉ bằng 1 lệnh (PowerShell).
 # Repo private: đặt token trước rồi tải script này qua GitHub API (xem README):
 #   $env:PSXPIXEL_TOKEN = "github_pat_..."
 #   irm "https://api.github.com/repos/virtualman209/PSXPixel/contents/setup.ps1" -Headers @{Authorization="Bearer $env:PSXPIXEL_TOKEN"; Accept="application/vnd.github.raw"} | iex
