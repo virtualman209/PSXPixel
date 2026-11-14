@@ -14,36 +14,15 @@ Chuyển tranh digital art thành pixel art kiểu PS1 ngay trên Windows: chu�
 
 ## Cài đặt
 
-Repo này để **private**, nên máy cài cần một GitHub token chỉ có quyền đọc để tải code và nhận bản cập nhật.
-
-**Bước 1: tạo token (một lần)**
-
-1. Mở [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new) (Fine-grained token).
-2. *Expiration*: chọn thời hạn tuỳ ý (ví dụ 1 năm).
-3. *Repository access*: **Only select repositories** → chọn `PSXPixel`.
-4. *Permissions* → *Repository permissions* → **Contents: Read-only**. Không cần quyền nào khác.
-5. Bấm *Generate token* và copy chuỗi `github_pat_...`.
-
-**Bước 2: cài**
-
-Mở **PowerShell**, dán 2 dòng sau (thay token của bạn vào):
-
-```powershell
-$env:PSXPIXEL_TOKEN = "github_pat_..."
-irm "https://api.github.com/repos/virtualman209/PSXPixel/contents/setup.ps1" -Headers @{Authorization="Bearer $env:PSXPIXEL_TOKEN"; Accept="application/vnd.github.raw"} | iex
-```
-
-Tool được cài vào `%LOCALAPPDATA%\PSXPixel`, tạo lối tắt trên Start Menu và Desktop. Nếu máy chưa có Python 3, script sẽ tự cài qua `winget`. Thư viện Pillow và NumPy được cài tự động. Token được lưu vào `github_token.txt` trong thư mục cài đặt để tự cập nhật; file này không bao giờ được đưa lên GitHub.
-
-Token hết hạn: tạo token mới rồi dán vào `%LOCALAPPDATA%\PSXPixel\github_token.txt`.
-
-**Cài không cần token:** trên trang repo bấm *Code → Download ZIP*, giải nén ở đâu cũng được rồi chạy `install.bat`. Cách này không tự cập nhật được.
-
-Nếu sau này chuyển repo sang **public**, không cần token nữa:
+Mở **PowerShell** và chạy:
 
 ```powershell
 irm https://raw.githubusercontent.com/virtualman209/PSXPixel/main/setup.ps1 | iex
 ```
+
+Tool được cài vào `%LOCALAPPDATA%\PSXPixel`, tạo lối tắt trên Start Menu và Desktop. Nếu máy chưa có Python 3, script sẽ tự cài qua `winget`. Thư viện Pillow và NumPy được cài tự động.
+
+Cài không qua PowerShell: trên trang repo bấm *Code → Download ZIP*, giải nén ở đâu cũng được rồi chạy `install.bat`.
 
 **Ghim lên Taskbar:** mở Start → tìm *PSX Pixel* → chuột phải → *Pin to taskbar*.
 
@@ -69,5 +48,7 @@ Style tự lưu nằm trong `styles.json` ở thư mục cài đặt. Khi cập 
 ## Phát hành bản mới
 
 Sửa code → tăng số phiên bản ở dòng đầu `version.txt` (các dòng sau là ghi chú thay đổi) → push lên `main`. Máy đã cài sẽ được hỏi cập nhật trong vòng 6 tiếng.
+
+Repo private vẫn dùng được: đặt token chỉ đọc (Contents: Read-only) vào `github_token.txt` trong thư mục cài đặt.
 
 Nếu đặt tên repo khác `virtualman209/PSXPixel`, sửa tên repo ở `updater.py`, `setup.ps1`, `update.ps1` và lệnh cài trong README.
